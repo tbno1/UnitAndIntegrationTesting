@@ -1,5 +1,7 @@
 package tutorial.loginExample.domain.userAccount;
 
+import javax.annotation.Nonnull;
+
 public final class UserAccount
 {
    private final String id;
