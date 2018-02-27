@@ -4,7 +4,6 @@ import com.quicktutorialz.learntesting.DemoTest.DemoTestApplication;
 import com.quicktutorialz.learntesting.DemoTest.daos.UserDao;
 import com.quicktutorialz.learntesting.DemoTest.entities.User;
 import com.quicktutorialz.learntesting.DemoTest.services.UserService;
-import com.quicktutorialz.learntesting.DemoTest.services.UserServiceImpl;
 import com.quicktutorialz.learntesting.DemoTest.utilities.JsonResponseBody;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,10 +15,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 /* mocking a deep dependency with mockito without using Reflections thanks to @Autowired of Spring */
@@ -28,11 +26,15 @@ import static org.mockito.Mockito.when;
 @RunWith(SpringRunner.class)
 public class RestControllerIntegrationTest2 {
 
-    @Autowired   RestController restController;
+    @Autowired
+    RestController restController;
 
-    @InjectMocks @Autowired UserService userService;
+    @InjectMocks
+    @Autowired
+    UserService userService;
 
-    @Mock        UserDao userDao;
+    @Mock
+    UserDao userDao;
 
 
     /*
@@ -47,7 +49,7 @@ public class RestControllerIntegrationTest2 {
 
 
     @Test
-    public void getAllUserMockingDao(){
+    public void getAllUserMockingDao() {
         //creating the expectation
         List<User> mockedList = new ArrayList<User>();
         mockedList.add(new User("MKTSN85G5643H", "Mike Johnson", 67, null));
@@ -62,7 +64,6 @@ public class RestControllerIntegrationTest2 {
 
         //assert
         assertEquals(mockedList, actualList);
-
 
 
     }

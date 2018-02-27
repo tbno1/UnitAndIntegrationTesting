@@ -36,9 +36,8 @@ public class RestControllerTest {
     RestController restController;
 
 
-
     @Test
-    public void getAllUsers(){
+    public void getAllUsers() {
 
         List<User> expectedListOfUsers = new ArrayList<User>();
         expectedListOfUsers.add(new User("MKTSN85G5643H", "Mike Johnson", 67, null));
@@ -55,10 +54,10 @@ public class RestControllerTest {
     }
 
     @Test
-    public void getAUser() throws UserNotPresentException{
+    public void getAUser() throws UserNotPresentException {
 
         User expectedUser = new User("MKTSN85G5643H", "Mike Johnson", 67, null);
-        when(userService.getAUser("MKTSN85G5643H")).thenReturn( Optional.of(expectedUser) );
+        when(userService.getAUser("MKTSN85G5643H")).thenReturn(Optional.of(expectedUser));
 
         ResponseEntity<JsonResponseBody> httpResponse = restController.getUser("MKTSN85G5643H");
         User actualUser = (User) httpResponse.getBody().getResponse();
@@ -69,11 +68,11 @@ public class RestControllerTest {
     }
 
     @Test
-    public void saveUser(){
+    public void saveUser() {
 
         User userToBeSaved = new User("MKTSN85G5643H", "Mike Johnson", 67, null);
 
-        when(userService.saveUser(any(User.class))).thenReturn( userToBeSaved );
+        when(userService.saveUser(any(User.class))).thenReturn(userToBeSaved);
         when(bindingResult.hasErrors()).thenReturn(false);
 
         ResponseEntity<JsonResponseBody> httpResponse = restController.saveUser(userToBeSaved, bindingResult);
