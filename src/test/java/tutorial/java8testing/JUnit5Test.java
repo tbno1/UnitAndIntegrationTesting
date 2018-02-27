@@ -6,7 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import mockit.*;
 
-final class JUnit5Test {
+public final class JUnit5Test {
+
     @Tested(availableDuringSetup = true)
     TestUtils utils;
     @Tested

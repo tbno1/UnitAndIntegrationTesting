@@ -1,13 +1,15 @@
 package tutorial.java8testing;
 
-import java.util.*;
-import java.util.stream.*;
+import mockit.Injectable;
+import org.junit.Test;
 
-import org.junit.*;
+import java.util.*;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
-
-import mockit.*;
 
 public final class Java8EmptyReturnsTest {
     @Test
